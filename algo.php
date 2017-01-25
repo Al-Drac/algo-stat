@@ -6,8 +6,8 @@
  * Time: 15:09
  */
 
-
 /* Tri Insertion */
+
 function triInsrt($list)
 {
     echo('Tri à Insertion');
@@ -38,6 +38,38 @@ function triInsrt($list)
 
 /*Tri par sélection*/
 
+function triSelec($list)
+{
+  echo ('Tri par sélection');
+  $size = count($list);
+  $orig = microtime();
+  for($i=0;$i<$size-1;$i++)
+	{
+		$min = $i;
+		$minV = $arrayOf[$min];
+		for($j=$i+1;$j<$size;$j++)
+		{
+      $z++;
+			if($arrayOf[$j] < $minV)
+			{
+				$min = $j;
+				$minV = $arrayOf[$min];
+			}
+		}
+
+		if($min != $i)
+		{
+			$arrayOf[$min] = $arrayOf[$i];
+			$arrayOf[$i] = $minV;
+		}
+	}
+  $end = microtime();
+  $time = $end - $orig;
+  var_dump($list);
+  var_dump($z);
+  var_dump($time);
+}
+
 /*Tri à bulle*/
 
 function triBulle($list)
@@ -66,6 +98,7 @@ function triBulle($list)
     var_dump($time);
 }
 
+/*Tri rapide*/
 
 function quicksort($list){
     if(count($list) === 0){
@@ -87,6 +120,13 @@ function quicksort($list){
 
     return array_merge(quicksort($left), array($pivot), quicksort($right));
 }
+
+/*Tri de Shell*/
+
+/*Tri fusion*/
+
+/*Tri à peigne*/
+
 
 
 
