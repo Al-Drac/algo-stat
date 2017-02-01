@@ -10,7 +10,9 @@
 
 function triInsrt($list)
 {
+
     echo('Tri à Insertion');
+    var_dump($list);
     $size = count($list);
     $orig = microtime();
     $z = 0;
@@ -41,28 +43,35 @@ function triInsrt($list)
 function triSelec($list)
 {
   echo ('Tri par sélection');
+  var_dump($list);
   $size = count($list);
+  $new = array();
   $orig = microtime();
-  for($i=0;$i<$size-1;$i++)
-	{
-		$min = $i;
-		$minV = $arrayOf[$min];
-		for($j=$i+1;$j<$size;$j++)
-		{
+  $z = 0;
+  for($i = 0;$i<$size-1;)
+  {
+    $z++;
+    $val = $list[0];
+    $pos = 0;
+    for($f = 0;$f < $size; $f++)
+    {
       $z++;
-			if($arrayOf[$j] < $minV)
-			{
-				$min = $j;
-				$minV = $arrayOf[$min];
-			}
-		}
 
-		if($min != $i)
-		{
-			$arrayOf[$min] = $arrayOf[$i];
-			$arrayOf[$i] = $minV;
-		}
-	}
+      if($list[$f]<$val)
+      {
+        $val = $list[$f];
+        $pos = $f;
+      }
+      //var_dump($val);
+    }
+    $new[] = $val;
+    $list[$pos] = $list[0];
+    array_shift($list);
+    //unset($list[$pos]);
+    $size = $size-1;
+    var_dump($new,$list);
+  }
+  $list = $new;
   $end = microtime();
   $time = $end - $orig;
   var_dump($list);
@@ -75,6 +84,7 @@ function triSelec($list)
 function triBulle($list)
 {
     echo('Tri à bulle');
+    var_dump($list);
     $size = count($list);
     $orig = microtime();
     $z = 0;
@@ -124,6 +134,31 @@ function quicksort($list){
 
 /*Tri de Shell*/
 
+function triShell($list)
+{
+  echo('Tri de shell');
+  var_dump($list);
+  $size = count($list);
+  $orig = microtime();
+
+  $invert = 1;
+  for($size != 1; $size = $size / 2;)
+  {
+    for($invert == 1; $invert = 0;)
+    {
+
+    }
+  }
+
+  $end = microtime();
+  $time = $end - $orig;
+  var_dump($list);
+  var_dump($z);
+  var_dump($time);
+
+}
+
+
 /*Tri fusion*/
 
 /*Tri à peigne*/
@@ -132,8 +167,10 @@ function quicksort($list){
 
 
 
-$list = array(4, 3, 5, 9, 3, 2, 1, 0);
+$list = array(4, 3, 5, 9, 15, 2, 1, 0);
 
-triInsrt($list);
-triBulle($list);
+//triInsrt($list);
+//triBulle($list);
+triSelec($list);
+//triShell($list);
 var_dump(quicksort($list));
