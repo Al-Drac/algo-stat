@@ -123,6 +123,36 @@ function quicksort($list){
 
 /*Tri de Shell*/
 
+function shellsort($list)
+{
+  echo('Tri de shell');
+  $size = count($list);
+  $orig = microtime();
+  $z = 0;
+  $i = 1;
+  for($i < $size; $i = 3 * $i + 1; $i++)
+  {
+    for($i > 0;;)
+    {
+      $i = $i / 3
+
+    }
+  }
+  /*h = 1
+while h < n, h = 3*h + 1
+while h > 0,
+    h = h / 3
+    for k = 1:h, insertion sort a[k:h:n]
+    → invariant: each h-sub-array is sorted
+end*/
+  $end = microtime();
+  $time = $end - $orig;
+  var_dump($list);
+  var_dump($z);
+  var_dump($time);
+
+}
+
 /*Tri fusion*/
 
 /*Tri à peigne*/
@@ -133,6 +163,7 @@ function quicksort($list){
 
 $list = array(4, 3, 5, 9, 3, 2, 1, 0);
 
-triInsrt($list);
-triBulle($list);
+//triInsrt($list);
+//triBulle($list);
+triSelec($list);
 var_dump(quicksort($list));
