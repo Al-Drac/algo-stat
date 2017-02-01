@@ -52,20 +52,23 @@ function triSelec($list)
   {
     $z++;
     $val = $list[0];
+    $pos = 0;
     for($f = 0;$f < $size; $f++)
     {
       $z++;
-      //var_dump($f);
 
       if($list[$f]<$val)
       {
         $val = $list[$f];
         $pos = $f;
       }
+      //var_dump($val);
     }
     $new[] = $val;
-    unset($list[$pos]);
-    $size = $size -1;
+    $list[$pos] = $list[0];
+    array_shift($list);
+    //unset($list[$pos]);
+    $size = $size-1;
     var_dump($new,$list);
   }
   $list = $new;
