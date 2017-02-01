@@ -66,7 +66,7 @@ function triBulle($list)
     var_dump($time);
 }
 
-
+/* Tri Quicksort */
 function quicksort($list){
     if(count($list) === 0){
         return array();
