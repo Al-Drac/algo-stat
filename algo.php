@@ -53,23 +53,26 @@ function triSelec($list)
     $z++;
     $val = $list[0];
     $pos = 0;
-    for($f = 0;$f < $size; $f++)
+    for($f = 0; $f < $size; $f++)
     {
       $z++;
-
       if($list[$f]<$val)
       {
         $val = $list[$f];
         $pos = $f;
       }
-      //var_dump($val);
+
     }
     $new[] = $val;
     $list[$pos] = $list[0];
     array_shift($list);
     //unset($list[$pos]);
     $size = $size-1;
-    var_dump($new,$list);
+    if($size == 1)
+    {
+      $new[] = $list[0];
+    }
+    //var_dump($new,$list);
   }
   $list = $new;
   $end = microtime();
@@ -166,10 +169,10 @@ function triShell($list)
 
 
 
-$list = array(4, 3, 5, 9, 15, 2, 1, 0);
+$list = array(4, 3, 5, 9, 15, 2, 1, 0, 25, 564, 2, 38, 2, 5, 5);
 
-//triInsrt($list);
-//triBulle($list);
+triInsrt($list);
+triBulle($list);
 triSelec($list);
-//triShell($list);
+triShell($list);
 var_dump(quicksort($list));
