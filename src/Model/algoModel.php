@@ -107,18 +107,18 @@ class algoModel
       $invert = 1;
       $loop = 0;
       $n=0;
-      while($n<$size) {
-          $n=3*$n+1;
+      while ( $n<$size ) {
+          $ =3*$n+1;
           $loop++;
       }
-      while($n!=0) {
+      while ( $n!=0 ) {
         $loop++;
         $n=(int)($n/3);
-        for($i=$n;$i<$size;$i++) {
+        for ( $i=$n;$i<$size;$i++ ) {
           $loop++;
           $mem=$list[$i];
           $j=$i;
-          while($j>($n-1) && $list[$j-$n]>$mem) {
+          while ( $j>($n-1) && $list[$j-$n]>$mem ) {
             $loop++;
             $list[$j]=$list[$j-$n];
             $j=$j-$n;
