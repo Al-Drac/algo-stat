@@ -61,8 +61,21 @@ class algoModel
     }
 
     /* Quicksort */
-    public function quicksort($list) {
+    public function quick_sort($list) {
+
         $orig = microtime();
+        $result = $this->quicksort($list);
+        $end = microtime();
+        $time = $end - $orig;
+
+        return ["list" => $result,
+                "time" => $time,
+        ];
+
+
+    }
+    private function quicksort($list)
+    {
         if (count($list) === 0) {
             return [];
         }
@@ -70,10 +83,9 @@ class algoModel
         $pivot = $list[0];
         $left = [];
         $right = [];
-        $loop = 0;
 
         for ($i = 1; $i < count($list); $i++) {
-            $loop++;
+
             if ($list[$i] < $pivot) {
                 $left[] = $list[$i];
             }
@@ -82,14 +94,9 @@ class algoModel
             }
         }
 
-        $end = microtime();
-        $time = $end - $orig;
         $list = array_merge($this->quicksort($left), [$pivot], $this->quicksort($right));
-
-        return ["list" => $list,
-                "time" => $time,
-                "loop" => $loop,
-        ];
+        return $list;
+        
     }
 
     /*Tri de Shell*/
