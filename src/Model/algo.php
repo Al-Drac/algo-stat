@@ -111,6 +111,7 @@ function triBulle($list)
     var_dump($time);
 }
 
+
 /*Tri rapide*/
 
 function quicksort($list){
