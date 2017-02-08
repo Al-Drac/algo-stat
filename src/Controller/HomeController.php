@@ -13,7 +13,6 @@ use App\Model\algoModel;
 
 
 require_once './src/Lib/smarty-3.1.29/libs/Smarty.class.php';
-require './src/Model/algoModel.php';
 
 class HomeController
 {
@@ -32,6 +31,8 @@ class HomeController
         $this->algo->triBulle($list);
         $this->algo->triSelec($list);
         $this->algo->triShell($list);
+        $quicksort = $this->algo->quicksort($list);
+        $this->Smarty->assign(["quicksort"=>$quicksort,]);
         $this->Smarty->display("./src/View/template/home.tpl");
     }
 }
