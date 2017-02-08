@@ -19,17 +19,11 @@
     <table>
         <th>Nombres triés par QuickSort</th>
         <td>
-            {foreach $quicksort as $quick_num}
+            {foreach $quicksort.list as $quick_num}
                 {$quick_num}
             {/foreach}
         </td>
     </table>
-
-<h2>Quicksort</h2>
-<h4>List: </h4>
-{foreach $quicksort.list as $quick_num}
-    {$quick_num} &nbsp; &nbsp;
-{/foreach}
 <br>
 <h4>Temps: </h4>
 {$quicksort.time}
