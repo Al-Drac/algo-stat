@@ -84,7 +84,7 @@ class algoModel
             }
         }
 
-        return array_merge(quicksort($left), array($pivot), quicksort($right));
+        return array_merge($this->quicksort($left), array($pivot), $this->quicksort($right));
     }
 
     /*Tri de Shell*/
