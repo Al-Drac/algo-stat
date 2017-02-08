@@ -94,9 +94,9 @@ class algoModel
             }
         }
 
+
         $list = array_merge($this->quicksort($left), [$pivot], $this->quicksort($right));
         return $list;
-
     }
 
     /*Tri de Shell*/
@@ -108,7 +108,7 @@ class algoModel
       $loop = 0;
       $n=0;
       while ( $n<$size ) {
-          $ =3*$n+1;
+          $n =3*$n+1;
           $loop++;
       }
       while ( $n!=0 ) {
