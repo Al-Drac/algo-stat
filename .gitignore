@@ -4,3 +4,6 @@ vendor/
 
 ## SMARTY ##
 templates_c/
+
+## PHPSTORM ##
+.idea/
