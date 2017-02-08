@@ -106,14 +106,26 @@ class algoModel
       $orig = microtime();
       $invert = 1;
       $loop = 0;
-
-      for ($size != 1; $size = $size / 2;) {
+      $n=0;
+      while($n<$size) {
+          $n=3*$n+1;
           $loop++;
-        for ($invert == 1; $invert = 0;) {
-
+      }
+      while($n!=0) {
+        $loop++;
+        $n=(int)($n/3);
+        for($i=$n;$i<$size;$i++) {
+          $loop++;
+          $mem=$list[$i];
+          $j=$i;
+          while($j>($n-1) && $list[$j-$n]>$mem) {
+            $loop++;
+            $list[$j]=$list[$j-$n];
+            $j=$j-$n;
+          }
+          $list[$j]=$mem;
         }
       }
-
       $end = microtime();
       $time = $end - $orig;
 
