@@ -57,8 +57,8 @@
     {$shell_num} &nbsp; &nbsp;
 {/foreach}
 <br>
-<h4>Temps: </h4>
+<!--<h4>Temps: </h4>
 {$shell.time}
-<br>
+<br>-->
 <h4>Boucle: </h4>
 {$shell.loop}
