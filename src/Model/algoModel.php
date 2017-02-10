@@ -37,6 +37,7 @@ class algoModel
     /*Tri à bulle*/
 
     public function triBulle($list) {
+
         $size = count($list);
         $orig = microtime();
         $loop = 0;
@@ -137,7 +138,7 @@ class algoModel
 
     /*Tri par sélection*/
 
-    function triSelec($list)
+     public function triSelec($list)
     {
       $size = count($list);
       $new = [];
@@ -180,5 +181,55 @@ class algoModel
 
     /*Tri fusion*/
 
+    function triFusion($list) {
+      $size = count($list);
+      $new = [];
+      $orig = microtime();
+      $loop = 0;
+
+      //to do
+
+      $end = microtime();
+      $time = $end - $orig;
+
+      return ["list" => $list,
+              "time" => $time,
+              "loop" => $loop,];
+    }
+
     /*Tri à peigne*/
+
+    public function triPeigne($list) {
+        $size = count($list);
+        $new = [];
+        $orig = microtime();
+        $loop = 0;
+        $change = True;
+        $inter = $size;
+
+        while ( $inter>1 || $change == True ) {
+            $loop++;
+            $inter = (int) ( $inter / 1.3 );
+            if ( $inter < 1 ) $inter = 1;
+            $i = 0;
+            $change = False;
+            while ( $i < $size - $inter ) {
+                $loop++;
+                if ( $list[$i] > $list[$i+$inter] ) {
+                    $temps = $list[$i];
+                    $list[$i] = $list[$i + $inter];
+                    $list[$i + $inter] = $temps;
+                }
+                $i++;
+            }
+        }
+
+        $end = microtime();
+        $time = $end - $orig;
+
+        return ["list" => $list,
+                "time" => $time,
+                "loop" => $loop,
+                ];
+    }
 }

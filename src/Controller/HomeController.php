@@ -33,6 +33,7 @@ class HomeController
         $selec = $this->algo->triSelec($list);
         $shell = $this->algo->triShell($list);
         $quicksort = $this->algo->quick_sort($list);
+        $peigne = $this->algo->triPeigne($list);
         $this->list->randomNumbers(10);
         $this->list->sortedNumbers(10);
         $this->list->sortedNumbersReverse(10);
@@ -42,6 +43,7 @@ class HomeController
                                "bulle" => $bulle,
                                "selec" => $selec,
                                "shell" => $shell,
+                               "peigne" => $peigne,
         ]);
         $this->Smarty->display("./src/View/template/home.tpl");
     }
