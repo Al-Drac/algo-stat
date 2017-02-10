@@ -62,3 +62,30 @@
 <br>-->
 <h4>Boucle: </h4>
 {$shell.loop}
+<h2>Shell: </h2>
+<h4>List: </h4>
+{foreach $shell.list as $shell_num}
+    {$shell_num} &nbsp; &nbsp;
+{/foreach}
+<br>
+<!--<h4>Temps: </h4>
+{$shell.time}
+<br>-->
+<h4>Boucle: </h4>
+{$peigne.loop}
+
+<br><br>
+
+<h2>Peigne: </h2>
+<h4>List: </h4>
+{foreach $peigne.list as $peigne_num}
+    {$peigne_num} &nbsp; &nbsp;
+{/foreach}
+<br>
+<h4>Temps: </h4>
+{$peigne.time}
+<br>
+<h4>Boucle: </h4>
+{$peigne.loop}
+
+<br><br>

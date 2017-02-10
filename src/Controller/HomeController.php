@@ -31,11 +31,13 @@ class HomeController
         $selec = $this->algo->triSelec($list);
         $shell = $this->algo->triShell($list);
         $quicksort = $this->algo->quick_sort($list);
+        $peigne = $this->algo->triPeigne($list);
         $this->Smarty->assign(["quicksort" => $quicksort,
                                "insertion" => $inst,
                                "bulle" => $bulle,
                                "selec" => $selec,
                                "shell" => $shell,
+                               "peigne" => $peigne,
         ]);
         $this->Smarty->display("./src/View/template/home.tpl");
     }
