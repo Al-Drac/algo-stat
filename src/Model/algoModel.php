@@ -200,38 +200,37 @@ class algoModel
     /*Tri à peigne*/
 
     public function triPeigne($list) {
-      $size = count($list);
-      $new = [];
-      $orig = microtime();
-      $loop = 0;
-      $change = True;
-      $inter = $size;
+        $size = count($list);
+        $new = [];
+        $orig = microtime();
+        $loop = 0;
+        $change = True;
+        $inter = $size;
 
-      while ( $inter>1 || $change == True ) {
-        $loop++;
-        $inter = (int) ( $inter / 1.3 );
-        if ( $inter < 1 ) $inter = 1;
+        while ( $inter>1 || $change == True ) {
+            $loop++;
+            $inter = (int) ( $inter / 1.3 );
+            if ( $inter < 1 ) $inter = 1;
+            $i = 0;
+            $change = False;
+            while ( $i < $size - $inter ) {
+                $loop++;
+                if ( $list[$i] > $list[$i+$inter] ) {
+                    $temps = $list[$i];
+                    $list[$i] = $list[$i + $inter];
+                    $list[$i + $inter] = $temps;
+                }
+                $i++;
+            }
 
-        $i = 0;
-        $change = False;
-        while ( $i < $size - $inter ) {
-          $loop++;
-          if ( $list[$i] > $list[$i+$inter] ) {
-            $temps = $list[$i];
-            $list[$i] = $list[$i + $inter];
-            $list[$i + $inter] = $temps;
-          }
-          $i++;
         }
 
-      }
+        $end = microtime();
+        $time = $end - $orig;
 
-      $end = microtime();
-      $time = $end - $orig;
-
-      return ["list" => $list,
-              "time" => $time,
-              "loop" => $loop,
-    ];
+        return ["list" => $list,
+                "time" => $time,
+                "loop" => $loop,
+                ];
     }
 }
