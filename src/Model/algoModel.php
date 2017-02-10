@@ -222,7 +222,6 @@ class algoModel
                 }
                 $i++;
             }
-
         }
 
         $end = microtime();
