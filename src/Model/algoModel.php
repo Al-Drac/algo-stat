@@ -95,9 +95,9 @@ class algoModel
             }
         }
 
+
         $list = array_merge($this->quicksort($left), [$pivot], $this->quicksort($right));
         return $list;
-
     }
 
     /*Tri de Shell*/

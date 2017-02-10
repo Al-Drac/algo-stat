@@ -10,6 +10,7 @@ namespace App\Controller;
 
 
 use App\Model\algoModel;
+use App\Model\listModel;
 
 
 require_once './src/Lib/smarty-3.1.29/libs/Smarty.class.php';
@@ -21,6 +22,7 @@ class HomeController
 
     public function __construct() {
         $this->algo = new algoModel();
+        $this->list = new listModel();
         $this->Smarty = new \Smarty();
     }
 
@@ -32,6 +34,10 @@ class HomeController
         $shell = $this->algo->triShell($list);
         $quicksort = $this->algo->quick_sort($list);
         $peigne = $this->algo->triPeigne($list);
+        $this->list->randomNumbers(10);
+        $this->list->sortedNumbers(10);
+        $this->list->sortedNumbersReverse(10);
+        $this->list->almostSorted(10);
         $this->Smarty->assign(["quicksort" => $quicksort,
                                "insertion" => $inst,
                                "bulle" => $bulle,
