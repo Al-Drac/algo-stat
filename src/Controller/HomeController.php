@@ -27,24 +27,22 @@ class HomeController
     }
 
     public function index() {
-        $list = array(4, 3, 5, 9, 15, 2, 1, 0, 25, 564, 2, 38, 2, 5, 5);
-        $inst = $this->algo->triInsrt($list);
-        $bulle = $this->algo->triBulle($list);
-        $selec = $this->algo->triSelec($list);
-        $shell = $this->algo->triShell($list);
-        $quicksort = $this->algo->quick_sort($list);
-        $peigne = $this->algo->triPeigne($list);
-        $this->list->randomNumbers(10);
-        $this->list->sortedNumbers(10);
-        $this->list->sortedNumbersReverse(10);
-        $this->list->almostSorted(10);
-        $this->Smarty->assign(["quicksort" => $quicksort,
-                               "insertion" => $inst,
-                               "bulle" => $bulle,
-                               "selec" => $selec,
-                               "shell" => $shell,
-                               "peigne" => $peigne,
-        ]);
+        $this->Smarty->assign([]);
         $this->Smarty->display("./src/View/template/home.tpl");
+    }
+
+    public function result () {
+        $size = $_POST['size'];
+        $func = $_POST['func'];
+        $list = $_POST['list'];
+        $listNumber = $this->list->$list($size);
+        $result = [];
+        foreach ($func as $key => $value) {
+            $result[$value] = $this->algo->$value($listNumber);
+        }
+        $this->Smarty->assign([
+                                'result' => $result,
+                            ]);
+        $this->Smarty->display("./src/View/template/result.tpl");
     }
 }

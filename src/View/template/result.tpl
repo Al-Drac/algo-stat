@@ -1,121 +1,30 @@
 <link rel="stylesheet" type="text/css" href="./src/Lib/algo.css">
 
-
-<p>Résultats</p>
-    <table>
-        <th>Nombres triés par QuickSort</th>
-        <td>
-            {foreach $quicksort.list as $quick_num}
-                {$quick_num}
-            {/foreach}
-        </td>
-    </table>
-<br>
-<h4>Temps: </h4>
-{$quicksort.time} ms
-
-<br><br>
-
-<h2>Insertion: </h2>
-<h4>List: </h4>
-{foreach $insertion.list as $insert_num}
-    {$insert_num} &nbsp; &nbsp;
-{/foreach}
-<br>
-<h4>Temps: </h4>
-{$insertion.time} ms
-<br>
-<h4>Boucle: </h4>
-{$insertion.loop}
-
-<br><br>
-
-<h2>Bulle: </h2>
-<h4>List: </h4>
-{foreach $bulle.list as $bulle_num}
-    {$bulle_num} &nbsp; &nbsp;
-{/foreach}
-<br>
-<h4>Temps: </h4>
-{$bulle.time} ms
-<br>
-<h4>Boucle: </h4>
-{$bulle.loop}
-
-<br><br>
-
-<h2>Selection: </h2>
-<h4>List: </h4>
-{foreach $selec.list as $selec_num}
-    {$selec_num} &nbsp; &nbsp;
-{/foreach}
-<br>
-<h4>Temps: </h4>
-{$selec.time} ms
-<br>
-<h4>Boucle: </h4>
-{$selec.loop}
-
-<br><br>
-
-<h2>Shell: </h2>
-<h4>List: </h4>
-{foreach $shell.list as $shell_num}
-    {$shell_num} &nbsp; &nbsp;
-{/foreach}
-<br>
-<h4>Temps: </h4>
-{$shell.time} ms
-<br>
-<h4>Boucle: </h4>
-{$shell.loop}
-<h2>Shell: </h2>
-<h4>List: </h4>
-{foreach $shell.list as $shell_num}
-    {$shell_num} &nbsp; &nbsp;
-{/foreach}
-<br>
-<!--<h4>Temps: </h4>
-{$shell.time} ms
-<br>-->
-<h4>Boucle: </h4>
-{$peigne.loop}
-
-<br><br>
-
-<h2>Peigne: </h2>
-<h4>List: </h4>
-{foreach $peigne.list as $peigne_num}
-    {$peigne_num} &nbsp; &nbsp;
-{/foreach}
-<br>
-<h4>Temps: </h4>
-{$peigne.time} ms
-<br>
-<h4>Boucle: </h4>
-{$peigne.loop}
-
-<br><br>
-
-<table>
+<h1>Résultats :</h1>
+<table class="table-fill">
     <tr>
-        <th>Type de tri</th>
-        <th>Tableau trié</th>
-        <th>Temps de tri</th>
-        <th>Nombre de boucles</th>
+        <th class="text-left">Type de tri</th>
+        <th class="text-left">Tableau trié</th>
+        <th class="text-left">Temps de tri</th>
+        <th class="text-left">Nombre de boucles</th>
     </tr>
+    {foreach from = $result key=k item=value}
     <tr>
-        <th></th>
+        <th class="text-left">{$k}</th>
+        <td class="data">
+            <div class="overFlow">
+                {foreach $value.list as $insert_num}
+                    {$insert_num}
+                {/foreach}
+            </div>
+        </tdclass>
         <td>
-            {foreach $insertion.list as $insert_num}
-                {$insert_num} &nbsp; &nbsp;
-            {/foreach}
+            {$value.time} ms
         </td>
         <td>
-            {$insertion.time} ms
-        </td>
-        <td>
-            {$insertion.loop}
+            {$value.loop}
         </td>
     </tr>
+    {/foreach}
 </table>
+
