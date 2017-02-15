@@ -35,6 +35,7 @@ class HomeController
     }
 
     public function result () {
+        var_dump($_POST);
         $size = $_POST['size'];
         $func = $_POST['func'];
         $list = $_POST['list'];
@@ -50,7 +51,7 @@ class HomeController
         }
 
         $this->Smarty->assign([
-                                'result' => $result
+                                'result' => $result,
                             ]);
     }
 }

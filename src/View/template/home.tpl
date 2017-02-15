@@ -9,8 +9,8 @@
         <p>LIST</p>
         <input name='list' type="checkbox" value="randomNumbers">random
         <input name='list' type="checkbox" value="sortedNumbers">sorted
-        <input name='list' type="checkbox" value="sortedReverseNumbers">sorted Reverse
-        <input name='list' type="checkbox" value="almostSortedNumbers">almost Sorted
+        <input name='list' type="checkbox" value="sortedReverseNumbers">sortedReverse
+        <input name='list' type="checkbox" value="almostSortedNumbers">almostSorted
         <br>
         <p>Quel type de tri voulez-vous utiliser ?</p>
         <input name='func[]' type="checkbox" value="triInsrt"> insrt
