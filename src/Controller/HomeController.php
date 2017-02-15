@@ -53,5 +53,6 @@ class HomeController
         $this->Smarty->assign([
                                 'result' => $result,
                             ]);
+        $this->Smarty->display("./src/View/template/result.tpl");
     }
 }
