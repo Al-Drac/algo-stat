@@ -48,5 +48,6 @@ class listModel
                 $array[$j] = mt_rand(1, 999);
             }
         }
+        return $array;
     }
 }
