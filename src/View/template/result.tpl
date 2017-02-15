@@ -1,21 +1,7 @@
-<link rel="stylesheet" type="text/css" href="./src/Lib/algo.css" >
-    <form>
-        <p>Combien de données voulez-vous trier ?</p>
-        <input type="radio" value="10">10
-        <input type="radio" value="100">100
-        <input type="radio" value="1000">1000
-        <input type="radio" value="10000">10000
-        <p>Quel type de tri voulez-vous utiliser ?</p>
-        <input type="checkbox" value="triInsrt">
-        <input type="checkbox" value="triBulle">
-        <input type="checkbox" value="quicksort">
-        <input type="checkbox" value="triShell">
-        <input type="checkbox" value="triSelec">
-        <input type="checkbox" value="triFusion">
-        <input type="checkbox" value="triPeigne">
-    </form>
+<link rel="stylesheet" type="text/css" href="./src/Lib/algo.css">
 
-        <p>Résultats</p>
+
+<p>Résultats</p>
     <table>
         <th>Nombres triés par QuickSort</th>
         <td>
@@ -111,4 +97,25 @@
 
 <br><br>
 
-<table></table>
+<table>
+    <tr>
+        <th>Type de tri</th>
+        <th>Tableau trié</th>
+        <th>Temps de tri</th>
+        <th>Nombre de boucles</th>
+    </tr>
+    <tr>
+        <th></th>
+        <td>
+            {foreach $insertion.list as $insert_num}
+                {$insert_num} &nbsp; &nbsp;
+            {/foreach}
+        </td>
+        <td>
+            {$insertion.time} ms
+        </td>
+        <td>
+            {$insertion.loop}
+        </td>
+    </tr>
+</table>
