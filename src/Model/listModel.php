@@ -28,7 +28,7 @@ class listModel
         return($array);
     }
 
-    function sortedNumbersReverse($quantity) {
+    function sortedReverseNumbers($quantity) {
         $array = array();
         for($i = 0; $i <= $quantity; $i++) {
             $array[] = mt_rand(1, 999);
@@ -36,8 +36,8 @@ class listModel
         rsort($array);
         return($array);
     }
-    
-    function almostSorted($quantity) {
+
+    function almostSortedNumbers($quantity) {
         $array = array();
         for($i = 0; $i <= $quantity; $i++) {
             $array[] = mt_rand(1, 999);
