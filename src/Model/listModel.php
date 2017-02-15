@@ -12,7 +12,7 @@ namespace App\Model;
 class listModel
 {
     function randomNumbers($quantity) {
-        $array = array();
+        $array = [];
         for($i = 0; $i <= $quantity; $i++) {
             $array[] = mt_rand(1, 999);
         }
@@ -20,7 +20,7 @@ class listModel
     }
 
     function sortedNumbers($quantity) {
-        $array = array();
+        $array = [];
         for($i = 0; $i <= $quantity; $i++) {
             $array[] = mt_rand(1, 999);
         }
@@ -29,7 +29,7 @@ class listModel
     }
 
     function sortedReverseNumbers($quantity) {
-        $array = array();
+        $array = [];
         for($i = 0; $i <= $quantity; $i++) {
             $array[] = mt_rand(1, 999);
         }
@@ -38,7 +38,7 @@ class listModel
     }
 
     function almostSortedNumbers($quantity) {
-        $array = array();
+        $array = [];
         for($i = 0; $i <= $quantity; $i++) {
             $array[] = mt_rand(1, 999);
         }
@@ -48,6 +48,5 @@ class listModel
                 $array[$j] = mt_rand(1, 999);
             }
         }
-        var_dump($array);
     }
 }
