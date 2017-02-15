@@ -26,7 +26,7 @@
     </table>
 <br>
 <h4>Temps: </h4>
-{$quicksort.time}
+{$quicksort.time} ms
 
 <br><br>
 
@@ -37,7 +37,7 @@
 {/foreach}
 <br>
 <h4>Temps: </h4>
-{$insertion.time}
+{$insertion.time} ms
 <br>
 <h4>Boucle: </h4>
 {$insertion.loop}
@@ -51,7 +51,7 @@
 {/foreach}
 <br>
 <h4>Temps: </h4>
-{$bulle.time}
+{$bulle.time} ms
 <br>
 <h4>Boucle: </h4>
 {$bulle.loop}
@@ -65,7 +65,7 @@
 {/foreach}
 <br>
 <h4>Temps: </h4>
-{$selec.time}
+{$selec.time} ms
 <br>
 <h4>Boucle: </h4>
 {$selec.loop}
@@ -78,9 +78,9 @@
     {$shell_num} &nbsp; &nbsp;
 {/foreach}
 <br>
-<!--<h4>Temps: </h4>
-{$shell.time}
-<br>-->
+<h4>Temps: </h4>
+{$shell.time} ms
+<br>
 <h4>Boucle: </h4>
 {$shell.loop}
 <h2>Shell: </h2>
@@ -90,7 +90,7 @@
 {/foreach}
 <br>
 <!--<h4>Temps: </h4>
-{$shell.time}
+{$shell.time} ms
 <br>-->
 <h4>Boucle: </h4>
 {$peigne.loop}
@@ -104,7 +104,7 @@
 {/foreach}
 <br>
 <h4>Temps: </h4>
-{$peigne.time}
+{$peigne.time} ms
 <br>
 <h4>Boucle: </h4>
 {$peigne.loop}

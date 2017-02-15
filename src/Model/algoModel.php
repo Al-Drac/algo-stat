@@ -11,21 +11,21 @@ class algoModel
     /* Tri Insertion */
     public function triInsrt($list) {
         $size = count($list);
-        $orig = microtime();
+        $orig = $this->microseconds();
         $loop = 0;
-        for ($i = 0; $i < $size; $i++) {
+        for ( $i = 0; $i < $size; $i++ ) {
             $elmToInsert = $list[$i];
-            for ($j = 0; $j < $i; $j++) {
+            for ( $j = 0; $j < $i; $j++ ) {
                 $loop++;
                 $curElm = $list[$j];
-                if ($elmToInsert < $curElm) {
+                if ( $elmToInsert < $curElm ) {
                     $list[$j] = $elmToInsert;
                     $elmToInsert = $curElm;
                 }
             }
             $list[$i] = $elmToInsert;
         }
-        $end = microtime();
+        $end = $this->microseconds();
         $time = $end - $orig;
 
         return ["list" => $list,
@@ -39,20 +39,20 @@ class algoModel
     public function triBulle($list) {
 
         $size = count($list);
-        $orig = microtime();
+        $orig = $this->microseconds();
         $loop = 0;
 
-        for ($i = $size-2; $i >= 0; $i--) {
-            for ($j = 0; $j <= $i; $j++) {
+        for ( $i = $size-2; $i >= 0; $i-- ) {
+            for ( $j = 0; $j <= $i; $j++ ) {
                 $loop++;
-                if ($list[$j+1] < $list[$j]) {
+                if ( $list[$j+1] < $list[$j] ) {
                     $temp = $list[$j+1];
                     $list[$j+1] = $list[$j];
                     $list[$j] = $temp;
                 }
             }
         }
-        $end = microtime();
+        $end = $this->microseconds();
         $time = $end - $orig;
 
         return ["list" => $list,
@@ -64,9 +64,9 @@ class algoModel
     /* Quicksort */
     public function quick_sort($list) {
 
-        $orig = microtime();
+        $orig = $this->microseconds();
         $result = $this->quicksort($list);
-        $end = microtime();
+        $end = $this->microseconds();
         $time = $end - $orig;
 
         return ["list" => $result,
@@ -77,7 +77,7 @@ class algoModel
     }
     private function quicksort($list)
     {
-        if (count($list) === 0) {
+        if ( count($list) === 0 ) {
             return [];
         }
 
@@ -85,7 +85,7 @@ class algoModel
         $left = [];
         $right = [];
 
-        for ($i = 1; $i < count($list); $i++) {
+        for ( $i = 1; $i < count($list); $i++ ) {
 
             if ($list[$i] < $pivot) {
                 $left[] = $list[$i];
@@ -95,7 +95,6 @@ class algoModel
             }
         }
 
-
         $list = array_merge($this->quicksort($left), [$pivot], $this->quicksort($right));
         return $list;
     }
@@ -104,7 +103,7 @@ class algoModel
 
     public function triShell($list) {
       $size = count($list);
-      $orig = microtime();
+      $orig = $this->microseconds();
       $invert = 1;
       $loop = 0;
       $n=0;
@@ -127,7 +126,15 @@ class algoModel
           $list[$j]=$mem;
         }
       }
-      $end = microtime();
+
+      for ( $size != 1; $size = $size / 2; ) {
+          $loop++;
+        for ( $invert == 1; $invert = 0; ) {
+
+        }
+      }
+
+      $end = $this->microseconds();
       $time = $end - $orig;
 
       return ["list" => $list,
@@ -142,18 +149,18 @@ class algoModel
     {
       $size = count($list);
       $new = [];
-      $orig = microtime();
+      $orig = $this->microseconds();
       $loop = 0;
-      for ($i = 0;$i<$size-1;) {
+      for ( $i = 0;$i<$size-1; ) {
           $loop++;
           $val = $list[0];
           $pos = 0;
 
-          for ($f = 0; $f < $size; $f++) {
+          for ( $f = 0; $f < $size; $f++ ) {
 
               $loop++;
 
-              if ($list[$f]<$val) {
+              if ( $list[$f]<$val ) {
                   $val = $list[$f];
                   $pos = $f;
               }
@@ -164,13 +171,13 @@ class algoModel
           array_shift($list);
           $size = $size-1;
 
-          if ($size === 1) {
+          if ( $size === 1 ) {
               $new[] = $list[0];
           }
         }
 
       $list = $new;
-      $end = microtime();
+      $end = $this->microseconds();
       $time = $end - $orig;
 
       return ["list" => $list,
@@ -184,12 +191,12 @@ class algoModel
     function triFusion($list) {
       $size = count($list);
       $new = [];
-      $orig = microtime();
+      $orig = $this->microseconds();
       $loop = 0;
 
       //to do
 
-      $end = microtime();
+      $end = $this->microseconds();
       $time = $end - $orig;
 
       return ["list" => $list,
@@ -202,7 +209,7 @@ class algoModel
     public function triPeigne($list) {
         $size = count($list);
         $new = [];
-        $orig = microtime();
+        $orig = $this->microseconds();
         $loop = 0;
         $change = True;
         $inter = $size;
@@ -224,12 +231,18 @@ class algoModel
             }
         }
 
-        $end = microtime();
+        $end = $this->microseconds();
         $time = $end - $orig;
 
         return ["list" => $list,
                 "time" => $time,
                 "loop" => $loop,
                 ];
+    }
+
+    /* Func microseconds */
+    private function microseconds() {
+        $mt = explode(' ', microtime());
+        return ((int)$mt[1]) * 1000000 + ((int)round($mt[0] * 1000000));
     }
 }
