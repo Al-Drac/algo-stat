@@ -11,7 +11,7 @@ namespace App\Controller;
 
 use App\Model\algoModel;
 use App\Model\listModel;
-
+use App\Model\resultModel;
 
 require_once './src/Lib/smarty-3.1.29/libs/Smarty.class.php';
 
@@ -19,10 +19,13 @@ class HomeController
 {
     private $Smarty;
     private $algo;
+    private $list;
+    private $result;
 
     public function __construct() {
         $this->algo = new algoModel();
         $this->list = new listModel();
+        $this->result = new resultModel();
         $this->Smarty = new \Smarty();
     }
 
@@ -38,10 +41,16 @@ class HomeController
         $listNumber = $this->list->$list($size);
         $result = [];
         foreach ($func as $key => $value) {
-            $result[$value] = $this->algo->$value($listNumber);
+            $start = $this->result->microseconds();
+            $list = $this->algo->$value($listNumber);
+            $end = $this->result->microseconds();
+            $time = $end - $start;
+            $count = $this->algo->getCount();
+            $result[$value] = $this->result->setResultArray($list, $time, $count);
         }
+
         $this->Smarty->assign([
-                                'result'-> $result
+                                'result' => $result
                             ]);
     }
 }
